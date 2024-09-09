@@ -2,8 +2,6 @@ create database Music_Store;
 use Music_Store;
 
 
-/*	Question Set 1 - Easy */
-
 /* Q1: Who is the senior most employee based on job title? */
 
 SELECT title, last_name, first_name 
@@ -52,9 +50,8 @@ LIMIT 1;
 
 
 
-/* Question Set 2 - Moderate */
 
-/* Q1: Write a query to return the email, first name, last name, & Genre of all Rock Music listeners. 
+/* Q6: Write a query to return the email, first name, last name, & Genre of all Rock Music listeners. 
 Return your list ordered alphabetically by email starting with A. */
 
 /*Method 1 */
@@ -83,7 +80,7 @@ WHERE genre.name LIKE 'Rock'
 ORDER BY email;
 
 
-/* Q2: Let's invite the artists who have written the most rock music in our dataset. 
+/* Q7: Let's invite the artists who have written the most rock music in our dataset. 
 Write a query that returns the Artist name and total track count of the top 10 rock bands. */
 
 SELECT artist.artist_id, artist.name, COUNT(artist.artist_id) AS number_of_songs
@@ -97,7 +94,7 @@ ORDER BY number_of_songs DESC
 LIMIT 10;
 
 
-/* Q3: Return all the track names that have a song length longer than the average song length. 
+/* Q8: Return all the track names that have a song length longer than the average song length. 
 Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first. */
 
 SELECT name, milliseconds
@@ -109,9 +106,8 @@ WHERE milliseconds > (
 ORDER BY milliseconds DESC;
 
 
-/* Question Set 3 - Advance */
 
-/* Q1: Find how much amount spent by each customer on artists? Write a query to return customer name, artist name, and total spent */
+/* Q9: Find how much amount spent by each customer on artists? Write a query to return customer name, artist name, and total spent */
 
 WITH best_selling_artist AS (
 	SELECT artist.artist_id AS artist_id, artist.name AS artist_name, SUM(invoiceline.unit_price * invoiceline.quantity) AS total_sales
@@ -134,7 +130,7 @@ GROUP BY c.customer_id, c.first_name, c.last_name, bsa.artist_name  -- Add custo
 ORDER BY amount_spent DESC;
 
 
-/* Q2: We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre 
+/* Q10: We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre 
 with the highest amount of purchases. Write a query that returns each country along with the top Genre. For countries where 
 the maximum number of purchases is shared return all Genres. */
 
@@ -153,7 +149,7 @@ WITH popular_genre AS
 SELECT * FROM popular_genre WHERE RowNo <= 1;
 
 
-/* Q3: Write a query that determines the customer that has spent the most on music for each country. 
+/* Q11: Write a query that determines the customer that has spent the most on music for each country. 
 Write a query that returns the country along with the top customer and how much they spent. 
 For countries where the top amount spent is shared, provide all customers who spent this amount. */
 
