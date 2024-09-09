@@ -26,10 +26,6 @@ The "Music Store" database contains the following tables:
 - track
 
 ![App Screenshot](https://github.com/harrshyadav24/Music-Store-Analysis/blob/main/schema_diagram.png)
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 
 ## Key Queries
 
